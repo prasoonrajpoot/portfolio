@@ -11,7 +11,7 @@ import Projects from './components/Projects';
 
 function App() {
   return (
-    <div className = "bg-stone-950 text-white min-h-screen flex flex-col">
+    <div className = "bg-stone-950 w-screen text-white min-h-screen flex flex-col">
       <Router>
         <Navbar />
         <Routes>
