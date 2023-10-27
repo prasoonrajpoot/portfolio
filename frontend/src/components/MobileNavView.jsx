@@ -4,43 +4,49 @@ import { Link } from "react-router-dom";
 import { motion, useCycle, AnimatePresence, MotionConfig } from "framer-motion";
 import { BsLinkedin } from "react-icons/bs";
 import { BiLogoUpwork } from "react-icons/bi";
-import { AiOutlineGithub } from "react-icons/ai";
+import { AiOutlineGithub} from "react-icons/ai";
 import {TbBrandLeetcode} from "react-icons/tb";
 
 
 export function NavLinks() {
   return (
     <ul className="space-y-5">
-      <li>
-        <Link to="/" className="text-4xl font-bold">
+      <motion.li
+      whileHover={{scale: 1.1, x : 20}}
+      >
+        <motion to="/" className="text-4xl font-bold colorText hover:text-6xl underlineText ">
           {" "}
           Home{" "}
-        </Link>
-      </li>
-      <li>
-        <Link to="/about" className="text-4xl font-bold">
+        </motion>
+      </motion.li>
+      <motion.li
+      whileHover={{ scale: 1.1, x : 20}}>
+        <motion to="/about" className="text-4xl font-bold colorText hover:text-6xl underlineText">
           {" "}
           About{" "}
-        </Link>
-      </li>
-      <li>
-        <Link to="/experience" className="text-4xl font-bold">
+        </motion>
+      </motion.li>
+      <motion.li
+      whileHover={{ scale: 1.1, x : 20}}>
+        <motion to="/experience" className="text-4xl font-bold colorText hover:text-6xl underlineText">
           {" "}
           Experience{" "}
-        </Link>
-      </li>
-      <li>
-        <Link to="/project" className="text-4xl font-bold">
+        </motion>
+      </motion.li>
+      <motion.li
+      whileHover={{ scale: 1.1, x : 20}}>
+        <motion to="/project" className="text-4xl font-bold colorText hover:text-6xl underlineText">
           {" "}
           Projects{" "}
-        </Link>
-      </li>
-      <li>
-        <Link to="/contact" className="text-4xl font-bold">
+        </motion>
+      </motion.li>
+      <motion.li
+      whileHover={{ scale: 1.1, x : 20 }}>
+        <motion to="/contact" className="text-4xl font-bold colorText hover:text-6xl underlineText">
           {" "}
           Contact{" "}
-        </Link>
-      </li>
+        </motion>
+      </motion.li>
     </ul>
   );
 }
@@ -98,32 +104,33 @@ export function MobileNavView() {
           className=""
         >
           <ul className="flex items-center gap-x-5 justify-center ">
-            <li>
+            <motion.li whileHover={{ scale: 1.4 }}>
               <div className="w-10 h-10 rounded-lg ">
                 <a
                   target="_blank"
-                  href="https://www.linkedin.com/in/prasoonrajpoot/"
+                  href="https://www.motion.linkedin.com/in/prasoonrajpoot/"
                 >
                   <BsLinkedin className="w-full h-full"></BsLinkedin>
                 </a>
               </div>
-            </li>
-            <li>
+            </motion.li>
+            <motion.li whileHover={{ scale: 1.4 }}>
               <div className="w-10 h-10 rounded-lg ">
                 <a target="_blank" href="https://github.com/prasoonrajpoot">
                   <AiOutlineGithub className="w-full h-full"></AiOutlineGithub>
                 </a>
               </div>
-            </li>
-            <li>
+            </motion.li>
+            <motion.li whileHover={{ scale: 1.4 }}>
               <div className="w-10 h-10 rounded-lg ">
                 <a target="_blank" href="https://leetcode.com/prasoonrajpoot/">
                   <TbBrandLeetcode className="w-full h-full"></TbBrandLeetcode>
 
                 </a>
               </div>
-            </li>
-            <li>
+            </motion.li>
+            <motion.li 
+            whileHover={{ scale: 1.4 }}>
               <div className="w-10 h-10 rounded-lg">
                 <a
                   target="_blank"
@@ -132,7 +139,7 @@ export function MobileNavView() {
                   <BiLogoUpwork className="w-full h-full" />
                 </a>
               </div>
-            </li>
+            </motion.li>
           </ul>
         </motion.div>
       </motion.div>

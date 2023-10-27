@@ -7,7 +7,8 @@ import logo from "../assets/logo.png";
 import { BsLinkedin } from "react-icons/bs";
 import { BiLogoUpwork } from "react-icons/bi";
 import { AiOutlineGithub } from "react-icons/ai";
-import {TbBrandLeetcode} from "react-icons/tb"
+import { TbBrandLeetcode } from "react-icons/tb";
+
 function Navbar() {
   const [mobileNav, toggleMobileNav] = useCycle(false, true);
 
@@ -46,11 +47,15 @@ function Navbar() {
   }
 
   return (
-    <nav className="sticky top-0 inset-x-0 h-16 bg-stone-900 w-full border-1px-solid  ">
+    <nav className="sticky top-0 inset-x-0  bg-stone-900 w-full  ">
       <div className="cantainer mx-auto h-full px-4  w-full flex justify-between items-center">
         <div className="flex items-baseline">
-          <span className="text-6xl">P</span>
-          <span>rasoon Rajpoot</span>
+          <motion.span 
+          whileHover={{ scale: 1.5, y : 5 }}
+          className="text-6xl underlineText colorText hover:text-5xl">P</motion.span>
+          <motion.span 
+          whileHover={{ scale: 1.5, x: 15}}
+          className=" colorText">rasoon Rajpoot</motion.span>
         </div>
         <div className="hidden md:flex">
           <NavLinks />
@@ -73,21 +78,23 @@ export default Navbar;
 function NavLinks() {
   return (
     <ul className="flex w-full justify-around gap-[14%] text-lg  ">
-      <li>
-        <Link to="/">Home</Link>
-      </li>
-      <li>
-        <Link to="/about">About</Link>
-      </li>
-      <li>
-        <Link to="/experience">Experience</Link>
-      </li>
-      <li>
-        <Link to="/projects">Projects</Link>
-      </li>
-      <li>
-        <Link to="/contact">Contact</Link>
-      </li>
+      <motion.li whileHover={{ scale: 1.2 }} 
+        onHoverStart={(e) => console.log(e)}
+      >
+        <Link to="/" className="colorText underlineText">Home</Link>
+      </motion.li>
+      <motion.li whileHover={{ scale: 1.2 }}>
+        <Link className="colorText underlineText"  to="/about">About</Link>
+      </motion.li>
+      <motion.li whileHover={{ scale: 1.2 }}>
+        <Link className="colorText underlineText"  to="/experience">Experience</Link>
+      </motion.li>
+      <motion.li whileHover={{ scale: 1.2 }}>
+        <Link className="colorText underlineText" to="/projects">Projects</Link>
+      </motion.li>
+      <motion.li whileHover={{ scale: 1.2 }}>
+        <Link className="colorText underlineText" to="/contact">Contact</Link>
+      </motion.li>
     </ul>
   );
 }
@@ -95,24 +102,34 @@ function NavLinks() {
 function IconLinks() {
   return (
     <div className="flex w-full justify-around gap-[14%] text-lg ">
-      <a target="_blank"
-       href="https://www.linkedin.com/in/prasoonrajpoot/">
-        <BsLinkedin className="w-7 h-7 rounded-md"/>
-      </a>
-      <a target="_blank"
-       href="https://github.com/prasoonrajpoot">
-        <AiOutlineGithub  className="w-7 h-7 rounded-md"/>
-      </a>
-      <a target="_blank"
-       href="https://leetcode.com/prasoonrajpoot/">
-      <TbBrandLeetcode className="w-7 h-7 rounded-md"/>
-      </a>
-      <a
+      <motion.a
+        whileHover={{ scale: 1.2 }}
+        target="_blank"
+        href="https://www.linkedin.com/in/prasoonrajpoot/"
+      >
+        <BsLinkedin className="w-7 h-7 rounded-md" />
+      </motion.a>
+      <motion.a
+        whileHover={{ scale: 1.2 }}
+        target="_blank"
+        href="https://github.com/prasoonrajpoot"
+      >
+        <AiOutlineGithub className="w-7 h-7 rounded-md" />
+      </motion.a>
+      <motion.a
+        whileHover={{ scale: 1.2 }}
+        target="_blank"
+        href="https://leetcode.com/prasoonrajpoot/"
+      >
+        <TbBrandLeetcode className="w-7 h-7 rounded-md" />
+      </motion.a>
+      <motion.a
+        whileHover={{ scale: 1.2 }}
         target="_blank"
         href="https://www.upwork.com/freelancers/~017d0ac10f47f6cf91"
       >
-        <BiLogoUpwork className="w-7 h-7 rounded-md"/>
-      </a>
+        <BiLogoUpwork className="w-7 h-7 rounded-md " />
+      </motion.a>
     </div>
   );
 }

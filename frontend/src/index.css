@@ -8,6 +8,39 @@ body {
 }
 
 
+@layer components {
+  .colorText{
+    @apply hover:text-transparent  hover:bg-clip-text hover:bg-gradient-to-r from-purple-400 to-pink-600 hover:text-2xl;
+  }
+
+  .underlineText{
+    @apply capitalize
+    inline-block
+    /* text-3xl */
+    relative
+    cursor-pointer
+    transition-all
+    duration-500
+    before:content-['']
+    before:absolute
+    before:-bottom-2
+    before:left-1/2
+    before:-translate-x-1/2
+    before:w-0
+    before:h-1.5
+    before:rounded-full
+    before:opacity-0
+    before:transition-all
+    before:duration-500
+    before:bg-gradient-to-r
+    before:from-purple-400
+    /* before:via-slate-400 */
+    before:to-pink-600
+    hover:before:w-full
+    hover:before:opacity-100;
+  }
+}
+
 /* * {
   border : 1px solid red;
 } */
