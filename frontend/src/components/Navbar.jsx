@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import data from "../constants/data.js";
+import {HashLink as Link} from "react-router-hash-link";
 import { motion, useCycle, AnimatePresence, MotionConfig } from "framer-motion";
 import { MobileNavView } from "./MobileNavView";
 import logo from "../assets/logo.png";
@@ -47,7 +48,7 @@ function Navbar() {
   }
 
   return (
-    <nav className="sticky top-0 inset-x-0  bg-stone-900 w-full  ">
+    <nav className="sticky top-0 inset-x-0  bg-stone-900 w-full ">
       <div className="cantainer mx-auto h-full px-4  w-full flex justify-between items-center">
         <div className="flex items-baseline">
           <motion.span 
@@ -55,7 +56,7 @@ function Navbar() {
           className="text-6xl underlineText colorText hover:text-5xl">P</motion.span>
           <motion.span 
           whileHover={{ scale: 1.5, x: 15}}
-          className=" colorText">rasoon Rajpoot</motion.span>
+          className=" colorText text-xl hidden md:flex">rasoon Rajpoot</motion.span>
         </div>
         <div className="hidden md:flex">
           <NavLinks />
@@ -78,23 +79,13 @@ export default Navbar;
 function NavLinks() {
   return (
     <ul className="flex w-full justify-around gap-[14%] text-lg  ">
-      <motion.li whileHover={{ scale: 1.2 }} 
-        onHoverStart={(e) => console.log(e)}
-      >
-        <Link to="/" className="colorText underlineText">Home</Link>
-      </motion.li>
-      <motion.li whileHover={{ scale: 1.2 }}>
-        <Link className="colorText underlineText"  to="/about">About</Link>
-      </motion.li>
-      <motion.li whileHover={{ scale: 1.2 }}>
-        <Link className="colorText underlineText"  to="/experience">Experience</Link>
-      </motion.li>
-      <motion.li whileHover={{ scale: 1.2 }}>
-        <Link className="colorText underlineText" to="/projects">Projects</Link>
-      </motion.li>
-      <motion.li whileHover={{ scale: 1.2 }}>
-        <Link className="colorText underlineText" to="/contact">Contact</Link>
-      </motion.li>
+      {data["navLinks"].map((link) => {
+        return (
+          <motion.li whileHover={{ scale: 1.2 }}>
+            <Link className="colorText underlineText" to={link.to}>{link.name}</Link>
+          </motion.li>
+        );
+      } )}
     </ul>
   );
 }

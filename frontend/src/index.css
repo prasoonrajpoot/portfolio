@@ -7,6 +7,9 @@ body {
   /* background-color: red; */
 }
 
+html, body {
+  scroll-behavior: smooth;
+}
 
 @layer components {
   .colorText{

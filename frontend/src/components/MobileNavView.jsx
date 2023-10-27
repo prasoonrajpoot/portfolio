@@ -1,52 +1,27 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 import { motion, useCycle, AnimatePresence, MotionConfig } from "framer-motion";
 import { BsLinkedin } from "react-icons/bs";
 import { BiLogoUpwork } from "react-icons/bi";
 import { AiOutlineGithub} from "react-icons/ai";
 import {TbBrandLeetcode} from "react-icons/tb";
-
+import data from "../constants/data.js";
 
 export function NavLinks() {
   return (
     <ul className="space-y-5">
-      <motion.li
-      whileHover={{scale: 1.1, x : 20}}
-      >
-        <motion to="/" className="text-4xl font-bold colorText hover:text-6xl underlineText ">
-          {" "}
-          Home{" "}
-        </motion>
-      </motion.li>
-      <motion.li
-      whileHover={{ scale: 1.1, x : 20}}>
-        <motion to="/about" className="text-4xl font-bold colorText hover:text-6xl underlineText">
-          {" "}
-          About{" "}
-        </motion>
-      </motion.li>
-      <motion.li
-      whileHover={{ scale: 1.1, x : 20}}>
-        <motion to="/experience" className="text-4xl font-bold colorText hover:text-6xl underlineText">
-          {" "}
-          Experience{" "}
-        </motion>
-      </motion.li>
-      <motion.li
-      whileHover={{ scale: 1.1, x : 20}}>
-        <motion to="/project" className="text-4xl font-bold colorText hover:text-6xl underlineText">
-          {" "}
-          Projects{" "}
-        </motion>
-      </motion.li>
-      <motion.li
+      {data["navLinks"].map((link) => {
+        return (
+          <motion.li
       whileHover={{ scale: 1.1, x : 20 }}>
-        <motion to="/contact" className="text-4xl font-bold colorText hover:text-6xl underlineText">
-          {" "}
-          Contact{" "}
+        <motion className="text-4xl font-bold colorText hover:text-6xl underlineText">
+          <Link to = {link.to} >{link.name} </Link>
         </motion>
       </motion.li>
+        )
+      })}
+
     </ul>
   );
 }
@@ -108,7 +83,7 @@ export function MobileNavView() {
               <div className="w-10 h-10 rounded-lg ">
                 <a
                   target="_blank"
-                  href="https://www.motion.linkedin.com/in/prasoonrajpoot/"
+                  href="https://www.linkedin.com/in/prasoonrajpoot/"
                 >
                   <BsLinkedin className="w-full h-full"></BsLinkedin>
                 </a>
