@@ -12,13 +12,14 @@ import { TbBrandLeetcode } from "react-icons/tb";
 
 function Navbar() {
   const [mobileNav, toggleMobileNav] = useCycle(false, true);
-
+ 
+  
   function ToggleButton() {
     return (
       <div className="relative z-10">
         <motion.button
           animate={mobileNav ? "open" : "closed"}
-          onClick={() => toggleMobileNav()}
+          onClick={() => toggleMobileNav(!mobileNav)}
           className="flex flex-col space-y-1"
         >
           <motion.span
@@ -69,7 +70,7 @@ function Navbar() {
           <ToggleButton />
         </div>
       </div>
-      <AnimatePresence>{mobileNav && <MobileNavView />}</AnimatePresence>
+      <AnimatePresence>{mobileNav && <MobileNavView toggleMobileNav = {toggleMobileNav}  />}</AnimatePresence>
     </nav>
   );
 }

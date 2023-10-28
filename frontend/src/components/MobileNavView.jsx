@@ -4,29 +4,32 @@ import { HashLink as Link } from "react-router-hash-link";
 import { motion, useCycle, AnimatePresence, MotionConfig } from "framer-motion";
 import { BsLinkedin } from "react-icons/bs";
 import { BiLogoUpwork } from "react-icons/bi";
-import { AiOutlineGithub} from "react-icons/ai";
-import {TbBrandLeetcode} from "react-icons/tb";
+import { AiOutlineGithub } from "react-icons/ai";
+import { TbBrandLeetcode } from "react-icons/tb";
 import data from "../constants/data.js";
 
-export function NavLinks() {
+
+export function MobileNavView(props) {
+
+
+ function NavLinks() {
+
   return (
     <ul className="space-y-5">
       {data["navLinks"].map((link) => {
         return (
-          <motion.li
-      whileHover={{ scale: 1.1, x : 20 }}>
-        <motion className="text-4xl font-bold colorText hover:text-6xl underlineText">
-          <Link to = {link.to} >{link.name} </Link>
-        </motion>
-      </motion.li>
-        )
+          <motion.li whileHover={{ scale: 1.1, x: 20 }}>
+            <motion className="text-4xl font-bold colorText hover:text-6xl underlineText">
+              <Link  onClick = {props.toggleMobileNav} to={link.to}>{link.name} </Link>
+            </motion>
+          </motion.li>
+        );
       })}
-
     </ul>
   );
 }
 
-export function MobileNavView() {
+
   return (
     <MotionConfig
       transition={{
@@ -100,12 +103,10 @@ export function MobileNavView() {
               <div className="w-10 h-10 rounded-lg ">
                 <a target="_blank" href="https://leetcode.com/prasoonrajpoot/">
                   <TbBrandLeetcode className="w-full h-full"></TbBrandLeetcode>
-
                 </a>
               </div>
             </motion.li>
-            <motion.li 
-            whileHover={{ scale: 1.4 }}>
+            <motion.li whileHover={{ scale: 1.4 }}>
               <div className="w-10 h-10 rounded-lg">
                 <a
                   target="_blank"

@@ -4,27 +4,27 @@ import {BsTelephone} from 'react-icons/bs';
 
 function LeftPart(){
   return (
-    <div className='bg-stone-900  flex flex-col space-y-10'>
-      <div className='text-7xl'>Hi 👋</div>
-      <div>Let's connect</div>
-      <div>Have an Idea, an Opportunity or a Project </div>
-       <div> feel free to reach out to me</div>
+    <div className='bg-stone-900  flex flex-col space-y-10 p-10 min-w-[45%] justify-center'>
+      <div className='text-7xl items-center flex justify-center'>Hi 👋</div>
+      <div className="text-center">Let's connect,</div>
+      <div className="text-center">Have an Idea, an Opportunity or a Project?</div>
+       <div className="text-center"> Feel free to reach out to me</div>
       <a target= "_blank" href="mailto: prasoonrajpoot@gmail.com">
-        <div className='flex items-center justify-center'>
-          <AiOutlineMail/>
+        <div className='flex items-center justify-center space-x-4 text-xl'>
+          <AiOutlineMail />
           <p>prasoonrajpoot03</p>
         </div>
       </a>
 
       <a target= "_blank" href="tel:9571093648">
-        <div className='flex items-center justify-center'>
-          <BsTelephone/>
+        <div className='flex items-center justify-center  space-x-4 text-xl '>
+          <BsTelephone />
           <p>9571093648</p>
         </div>
       </a>
      
       <a target= "_blank" href = "https://www.linkedin.com/in/prasoonrajpoot/">
-        <div className='flex items-center justify-center'>
+        <div className='flex items-center justify-center  space-x-4 text-xl'>
           <AiOutlineLinkedin/>
           <p>prasoonrajpoot</p>
         </div>
